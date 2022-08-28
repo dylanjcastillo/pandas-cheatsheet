@@ -5,11 +5,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pandas Cheat Sheet</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <link rel="stylesheet" href="./assets/built/style.css" />
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-    <style>
-    </style>
+    <meta name="keywords" content="pandas cheatsheet, pandas cheat sheet">
+    <meta name="description" content="Interactive Pandas cheat sheet made with PyScript.">
+
+    <meta property="og:title" content="Pandas Cheat Sheet" />
+    <meta property="og:description" content="Interactive Pandas cheat sheet made with PyScript." />
+    <meta property="og:url" content="https//pandas.dylancastillo.co" />
+    <meta property="og:image" content="./assets/images/meta-img.jpg" />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pandas Cheat Sheet" />
+    <meta property="twitter:description" content="Interactive Pandas cheat sheet made with PyScript." />
+    <meta name="twitter:site" content="@_dylancastillo" />
+    <meta name="twitter:image" content="./assets/images/meta-img.jpg" />
+    <meta name="twitter:creator" content="@_dylancastillo" />
     <py-env>
         - matplotlib
         - numpy
@@ -18,7 +32,8 @@
 </head>
 
 <body body class="min-h-screen bg-bgray-200">
-    <h1 class="text-bgray-800 text-center font-bold text-4xl pt-8 pb-4">Pandas Cheat Sheet</h1>
+    <h2 class="text-bgray-800 text-center font-bold text-6xl pt-6">🐼 🔎 📚</h2>
+    <h1 class="text-bgray-800 text-center font-bold text-4xl pb-6 pt-2">Pandas Cheat Sheet</h1>
     <div class="flex flex-row flex-wrap gap-4 justify-center">
         <div>
             <select id="category"
@@ -46,10 +61,10 @@
         <div class="container-main">
             <details class="group open:rounded-none" open>
                 <summary
-                    class="p-4 w-full bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
+                    class="p-4 bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
                     REPL
                 </summary>
-                <div class="w-full bg-white border-x bg-border-gray-200 pt-2 pb-6" id="container-repl">
+                <div class="bg-white border-x bg-border-gray-200 pt-2 pb-6 overflow-x-auto" id="container-repl">
                     <py-repl std-out="output" std-err="errors" id="output-repl">df.head()</py-repl>
                 </div>
             </details>
@@ -57,43 +72,46 @@
         <div class="container-main">
             <details class="group open:rounded-none" open>
                 <summary
-                    class="p-4 w-full bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
+                    class="p-4 bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
                     Warnings & Errors
                 </summary>
-                <div id="errors" class="w-full min-h-[16px] bg-white border-x bg-border-gray-200">
+                <div id="errors" class="min-h-[16px] bg-white border-x bg-border-gray-200 overflow-x-auto">
                 </div>
             </details>
         </div>
         <div class="container-main">
             <details class="group open:rounded-none" open>
                 <summary
-                    class="p-4 w-full bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
+                    class="p-4 bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
                     Initial
                     DataFrame
                 </summary>
-                <div id="initial" class="w-full min-h-[16px] bg-white border-x bg-border-gray-200 px-4 py-2">
+                <div id="initial" class="min-h-[16px] bg-white border-x bg-border-gray-200 px-4 py-2 overflow-x-auto">
                 </div>
             </details>
         </div>
         <div class="container-main">
             <details class="group open:rounded-none" open>
                 <summary
-                    class="p-4 w-full bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
+                    class="p-4 bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
                     Output
                 </summary>
-                <div id="output" class="w-full min-h-[16px] bg-white border-x bg-border-gray-200 px-4 py-2">
+                <div id="output" class="min-h-[16px] bg-white border-x bg-border-gray-200 px-4 py-2 overflow-x-auto">
                 </div>
             </details>
         </div>
     </div>
     <py-repl std-out="initial" class="hidden" id="initial-repl">df_initial.head()</py-repl>
-    <div class="text-center mb-6" id="footer">
-        <a href="https://twitter.com/_dylancastillo" class="text-bgray-500">Built with ❤️ ️by
-            <span class="underline text-blue-800">@_dylancastillo</span></a>
-        |
-        <a href="" class="text-bgray-500">Send Feedback</span></a>
+    <div class="text-center mt-6" id="footer">
+        <div class="text-blue-600">
+            <a href="https://twitter.com/_dylancastillo" class="hover:text-blue-500">Get in touch</a>
+            |
+            <a href="https://github.com/dylanjcastillo/pandas-cheatsheet/issues" class="hover:text-blue-500">Send
+                Feedback</a>
+        </div>
     </div>
-    <script defer src="./assets/built/index.js"></script>
+    <script src="./assets/built/index.js" defer></script>
+    <script src="https://smile-thirtyeight.dylancastillo.co/script.js" data-site="HGJEYEEY" defer></script>
 </body>
 
 </html>
