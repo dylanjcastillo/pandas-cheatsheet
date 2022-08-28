@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pandas Cheat Sheet</title>
+    <link rel="stylesheet" href="./assets/built/style.css" />
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <style>
+    </style>
+    <py-env>
+        - matplotlib
+        - numpy
+        - pandas
+    </py-env>
+</head>
+
+<body body class="min-h-screen bg-bgray-200">
+    <h1 class="text-bgray-800 text-center font-bold text-4xl pt-8 pb-4">Pandas Cheat Sheet</h1>
+    <div class="flex flex-row flex-wrap gap-4 justify-center">
+        <div>
+            <select id="category"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                <option selected="">Choose a category</option>
+                <option value="subset_rows">Subset rows</option>
+                <option value="subset_cols">Subset columns</option>
+                <option value="subset_rows_cols">Subset rows & columns</option>
+                <option value="reshape">Reshape data</option>
+                <option value="manipulate">Manipulate data</option>
+                <option value="summarize">Summarize data</option>
+                <option value="aggregations">Aggregate data</option>
+                <option value="join_df">Join DataFrames</option>
+            </select>
+        </div>
+        <div>
+            <select id="operation"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                <option selected="">Choose an operation</option>
+            </select>
+        </div>
+    </div>
+    <py-script src="./scripts/script.py"></py-script>
+    <div class="grid gap-6 md:grid-cols-2 px-6 my-4">
+        <div class="container-main">
+            <details class="group open:rounded-none" open>
+                <summary
+                    class="p-4 w-full bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
+                    REPL
+                </summary>
+                <div class="w-full bg-white border-x bg-border-gray-200 pt-2 pb-6" id="container-repl">
+                    <py-repl std-out="output" std-err="errors" id="output-repl">df.head()</py-repl>
+                </div>
+            </details>
+        </div>
+        <div class="container-main">
+            <details class="group open:rounded-none" open>
+                <summary
+                    class="p-4 w-full bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
+                    Warnings & Errors
+                </summary>
+                <div id="errors" class="w-full min-h-[16px] bg-white border-x bg-border-gray-200">
+                </div>
+            </details>
+        </div>
+        <div class="container-main">
+            <details class="group open:rounded-none" open>
+                <summary
+                    class="p-4 w-full bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
+                    Initial
+                    DataFrame
+                </summary>
+                <div id="initial" class="w-full min-h-[16px] bg-white border-x bg-border-gray-200 px-4 py-2">
+                </div>
+            </details>
+        </div>
+        <div class="container-main">
+            <details class="group open:rounded-none" open>
+                <summary
+                    class="p-4 w-full bg-gray-50 rounded-xl group-open:rounded-b-none group-open:rounded-t-xl border border-gray-200 font-bold text-xs">
+                    Output
+                </summary>
+                <div id="output" class="w-full min-h-[16px] bg-white border-x bg-border-gray-200 px-4 py-2">
+                </div>
+            </details>
+        </div>
+    </div>
+    <py-repl std-out="initial" class="hidden" id="initial-repl">df_initial.head()</py-repl>
+    <div class="text-center mb-6" id="footer">
+        <a href="https://twitter.com/_dylancastillo" class="text-bgray-500">Built with ❤️ ️by
+            <span class="underline text-blue-800">@_dylancastillo</span></a>
+        |
+        <a href="" class="text-bgray-500">Send Feedback</span></a>
+    </div>
+    <script defer src="./assets/built/index.js"></script>
+</body>
+
+</html>
