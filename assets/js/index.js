@@ -39,24 +39,6 @@ err_observer.observe(err, {
 });
 
 const manipulate = {
-    "Create a new column": `df["length_width_ratio"] = df["sepal_length"] / df["sepal_width"]
-df.head()`,
-    "Create a column in a method chain": `(
-    df
-    .groupby('iris_class')
-    .agg(
-        avg_sepal_length=('sepal_length', 'mean'), 
-        avg_sepal_width=('sepal_width', 'mean')
-    )
-    .assign(is_wide=lambda df_: df_.avg_sepal_width > df_.avg_sepal_length)
-)`,
-    "Map values of a column": `iris_ids = {
-    "Iris-setosa": 1,
-    "Iris-virginica": 2,
-    "Iris-versicolor": 3
-}
-      
-df["iris_class"].map(iris_ids)`,
     "Apply a function to multiple columns": `def func(sepal_length, sepal_width):
     if sepal_length / sepal_width > 0.5:
         return (sepal_length + sepal_width) / 10
@@ -67,6 +49,40 @@ df.apply(
     lambda row: func(row["sepal_length"], row["sepal_width"]), 
     axis=1
 )`,
+    "Create a new column": `df["length_width_ratio"] = df["sepal_length"] / df["sepal_width"]
+df.head()`,
+    "Create a new column in a method chain": `(
+    df
+    .groupby('iris_class')
+    .agg(
+        avg_sepal_length=('sepal_length', 'mean'), 
+        avg_sepal_width=('sepal_width', 'mean')
+    )
+    .assign(is_wide=lambda df_: df_.avg_sepal_width > df_.avg_sepal_length)
+)`,
+    "Fill missing values": `df = df.fillna(value={
+    "sepal_length": np.mean(df.sepal_length),
+    "sepal_width": np.mean(df.sepal_width),
+    "petal_length": 0,
+    "petal_width": 0,
+    "iris_class": ""
+})
+  
+df[df.isnull().any(axis=1)]`,
+    "Generate bins": `df["petal_width_size"] = pd.cut(
+    df.petal_width, 
+    bins=3, 
+    labels=["Small", "Medium", "Large"]
+)
+df[["petal_width", "petal_width_size"]]`,
+    "Map values of a column": `iris_ids = {
+    "Iris-setosa": 1,
+    "Iris-virginica": 2,
+    "Iris-versicolor": 3
+}
+      
+df["iris_class"].map(iris_ids)`,
+
 }
 
 const join_df = {
