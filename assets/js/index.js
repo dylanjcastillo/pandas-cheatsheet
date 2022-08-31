@@ -265,6 +265,24 @@ function update_repl() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    var about_button = document.getElementById('about');
+    var close_modal_button = document.getElementById('close-modal');
+
+    about_button.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.getElementById("modal-id").classList.toggle("hidden");
+        document.getElementById("modal-id" + "-backdrop").classList.toggle("hidden");
+        document.getElementById("modal-id").classList.toggle("flex");
+        document.getElementById("modal-id" + "-backdrop").classList.toggle("flex");
+    });
+
+    close_modal_button.addEventListener('click', function () {
+        document.getElementById("modal-id").classList.toggle("hidden");
+        document.getElementById("modal-id" + "-backdrop").classList.toggle("hidden");
+        document.getElementById("modal-id").classList.toggle("flex");
+        document.getElementById("modal-id" + "-backdrop").classList.toggle("flex");
+    });
+
     document.getElementById("category").addEventListener("change", update_categories);
     update_categories();
     document.getElementById("operation").addEventListener("change", update_repl);
