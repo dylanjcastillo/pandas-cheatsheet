@@ -93,7 +93,10 @@ const join_df = {
     }
 )
 
-df.merge(df2, how="left", on="iris_class")`,
+df.merge(right=df2, 
+         how="left", 
+         on="iris_class",
+         validate="many_to_many") # check uniqueness of merge keys`,
     "Concatenate DataFrames": `df2 = pd.DataFrame(
     columns=["sepal_length", "sepal_width", "petal_length", "petal_width", "iris_class"],
     data=[[10,10,10,10, "Iris-setosa"]]
